@@ -1,0 +1,21 @@
+{
+  "code": 200,
+  "msg": "登录成功",
+  "data": {
+    "user": {
+      "id": 1,
+      "updatetime": "2017-06-20 11:11:32",
+      "createtime": "2017-06-19 20:53:37",
+      "username": "admin",
+      "realname": null,
+      "avatar": null,
+      "sex": 0,
+      "email": null,
+      "phone": null,
+      "active": 1,
+      "remember_token": null,
+      "lastlogintime": "2017-06-20 11:11:33"
+    },
+    "token": "852080444121457cbbcdecfdcf94eeb2"
+  }
+}

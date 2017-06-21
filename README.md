@@ -2,6 +2,8 @@
 
 > 和佳PaaS云平台，前端项目
 
+_已使用 eslint(standard) 强制严格按照标准编写_
+
 ## Build Setup
 
 ``` bash
@@ -31,3 +33,32 @@ npm test
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+
+## Dependencies Document
+
+
+### 1.axios
+```text
+# document:
+https://www.npmjs.com/package/axios
+
+# global config
+src/main.js
+
+# interceptors
+src/main.js --> instance.interceptors
+
+# proxyTable
+config/index.js
+```
+
+### 2. mock data
+```text
+# use express 
+
+# config
+build/dev-server.js
+  // serve mock data
+  app.use('/mock', express.static('./mock'))
+```

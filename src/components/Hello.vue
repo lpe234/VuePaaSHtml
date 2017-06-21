@@ -17,6 +17,11 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+    <h2>For Test</h2>
+    <ul>
+      <li><button @click="axiosGet">axios click</button><span>{{ axiosGetMessage }}</span></li>
+      <li><button @click="axiosErrorGet">axios error click</button><span>{{ axiosErrorGetMessage }}</span></li>
+    </ul>
   </div>
 </template>
 
@@ -25,7 +30,28 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      axiosGetMessage: '',
+      axiosErrorGetMessage: ''
+    }
+  },
+  methods: {
+    // axios GET 测试
+    axiosGet () {
+      let that = this
+      this.$ajax.get('/tapi/login.json').then(function (resp) {
+        console.log(resp)
+        that.axiosGetMessage = 'status code:' + resp.data.code
+        // TODO: change axios headers
+        that.$ajax.defaults.headers.common['Authorization'] = resp.data.data.token
+      })
+    },
+    axiosErrorGet () {
+      let that = this
+      this.$ajax.get('/tapi/error.json').then(function (resp) {
+        console.log(resp)
+        that.axiosErrorGetMessage = 'status code:' + resp.data.code
+      })
     }
   }
 }
