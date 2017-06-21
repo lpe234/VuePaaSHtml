@@ -66,6 +66,7 @@ build/dev-server.js
 ## Other
 
 ### 1. vue-devtools
+![vue.js_devtools-3.1.5](other/vue.js_devtools-3.1.5.png)
 ```text
 # vue-devtools
 https://github.com/vuejs/vue-devtools
