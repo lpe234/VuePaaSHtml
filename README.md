@@ -38,7 +38,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 ## Dependencies Document
 
 
-### 1.axios
+### 1. axios
 ```text
 # document:
 https://www.npmjs.com/package/axios
@@ -61,4 +61,15 @@ config/index.js
 build/dev-server.js
   // serve mock data
   app.use('/mock', express.static('./mock'))
+```
+
+## Other
+
+### 1. vue-devtools
+```text
+# vue-devtools
+https://github.com/vuejs/vue-devtools
+
+# for chrome plug-in
+other/vue.js_devtools-3.1.5.crx
 ```
