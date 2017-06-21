@@ -26,6 +26,10 @@
 </template>
 
 <script>
+import HelloApi from '../api/HelloApi'
+
+const api = new HelloApi()
+
 export default {
   name: 'hello',
   data () {
@@ -39,7 +43,7 @@ export default {
     // axios GET 测试
     axiosGet () {
       let that = this
-      this.$ajax.get('/tapi/login.json').then(function (resp) {
+      api.login().then(function (resp) {
         console.log(resp)
         that.axiosGetMessage = 'status code:' + resp.data.code
         // TODO: change axios headers
@@ -48,7 +52,7 @@ export default {
     },
     axiosErrorGet () {
       let that = this
-      this.$ajax.get('/tapi/error.json').then(function (resp) {
+      api.error().then(function (resp) {
         console.log(resp)
         that.axiosErrorGetMessage = 'status code:' + resp.data.code
       })

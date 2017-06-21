@@ -44,10 +44,10 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 https://www.npmjs.com/package/axios
 
 # global config
-src/main.js
+src/index.js
 
 # interceptors
-src/main.js --> instance.interceptors
+src/index.js
 
 # proxyTable
 config/index.js
