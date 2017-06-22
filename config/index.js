@@ -23,13 +23,13 @@ module.exports = {
   },
   dev: {
     env: require('./dev.env'),
-    port: 8080,
+    port: 9366,
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
       '/tapi': {
-        target: 'http://127.0.0.1:8080',
+        target: 'http://127.0.0.1:9366',
         changeOrigin: true,
         pathRewrite: {
           '^/tapi': '/mock'
