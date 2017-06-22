@@ -2,7 +2,7 @@
  * Created by lpe234 on 2017/6/21.
  */
 
-import $ from '../api'
+import $ from './'
 
 class HelloApi {
   login () {
