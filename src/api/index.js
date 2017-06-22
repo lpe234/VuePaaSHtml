@@ -3,6 +3,8 @@
  */
 
 import axios from 'axios'
+import NProgress from 'nprogress'
+import 'nprogress/nprogress.css'
 
 // axios全局配置
 let $ = axios.create({
@@ -21,6 +23,7 @@ let $ = axios.create({
 // axios请求拦截器
 $.interceptors.request.use(function (config) {
   // Do something before request is sent
+  NProgress.start()
   return config
 }, function (error) {
   // Do something with request error
@@ -29,10 +32,11 @@ $.interceptors.request.use(function (config) {
 // axios相应拦截器
 $.interceptors.response.use(function (response) {
   // Do something with response data
+  NProgress.done()
   // TODO: 简单错误请求拦截
   if (response.data.code !== 200) {
     alert(response.data.msg)
-    return Promise.reject(response.data.msg)
+    return Promise.reject('请求出错:' + response.data.msg)
   }
   return response
 }, function (error) {

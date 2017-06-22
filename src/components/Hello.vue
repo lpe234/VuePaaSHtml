@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <img src="../assets/logo.png">
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -26,58 +26,75 @@
 </template>
 
 <script>
-import HelloApi from '../api/HelloApi'
+  import $ajax from '../api'
+  import HelloApi from '../api/HelloApi'
 
-const api = new HelloApi()
+  const api = new HelloApi()
 
-export default {
-  name: 'hello',
-  data () {
-    return {
-      msg: 'Welcome to Your Vue.js App',
-      axiosGetMessage: '',
-      axiosErrorGetMessage: ''
-    }
-  },
-  methods: {
-    // axios GET 测试
-    axiosGet () {
-      let that = this
-      api.login().then(function (resp) {
-        console.log(resp)
-        that.axiosGetMessage = 'status code:' + resp.data.code
-        // TODO: change axios headers
-        that.$ajax.defaults.headers.common['Authorization'] = resp.data.data.token
-      })
+  export default {
+    name: 'hello',
+    data () {
+      return {
+        msg: 'Welcome to Your Vue.js App',
+        axiosGetMessage: '',
+        axiosErrorGetMessage: ''
+      }
     },
-    axiosErrorGet () {
-      let that = this
-      api.error().then(function (resp) {
-        console.log(resp)
-        that.axiosErrorGetMessage = 'status code:' + resp.data.code
-      })
+    methods: {
+      // axios GET 测试
+      axiosGet () {
+        let that = this
+        api.login().then(function (resp) {
+          that.$notify({
+            title: '请求成功',
+            message: resp.data.msg,
+            type: 'success',
+            duration: 2000
+          })
+          console.log(resp)
+          that.axiosGetMessage = 'status code:' + resp.data.code
+          // TODO: change axios headers
+          $ajax.defaults.headers.common['Authorization'] = resp.data.data.token
+        })
+      },
+      axiosErrorGet () {
+        let that = this
+        api.error().then(function (resp) {
+          console.log(resp)
+          that.axiosErrorGetMessage = 'status code:' + resp.data.code
+        }).catch(function (error) {
+          console.error(error)
+        })
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
+  .hello {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
+  h1, h2 {
+    font-weight: normal;
+  }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-}
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
 
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
 
-a {
-  color: #42b983;
-}
+  a {
+    color: #42b983;
+  }
 </style>
