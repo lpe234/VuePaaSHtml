@@ -1,4 +1,7 @@
 @charset "utf-8";
+
+@import "base";
+
 /*reset 重置*/
 body, ul, ol, p, h1, h2, h3, h4, h5, dl, dd, form, input, textarea, td, th, button, strong, em, select, video, canvas {
   margin: 0;
@@ -48,15 +51,14 @@ html, body { /* 禁止选中文本(如无文本选中需求,此为必选项) *//
 }
 
 html {
-  font-size: 62.5%;
+  font-size: @font-size-small;
 }
 
 body {
-  font-size: 14px;
-  font-family: "Microsoft YaHei", Helvetica, serif;
+  font-size: @font-size-medium;
+  font-family: @font-family;
   margin: 0;
   padding: 0;
-  /*background: #2F3143;*/
 }
 
 a {

@@ -1,6 +1,9 @@
 <template>
   <div class="login">
     <div class="form">
+      <div class="header">
+        <h1>PaaS 管理平台登录</h1>
+      </div>
       <el-form ref="loginForm" :model="loginForm" :rules="rules">
         <el-form-item prop="username">
           <el-input v-model="loginForm.username" placeholder="请输入用户名" icon="information"></el-input>
@@ -12,21 +15,21 @@
           <el-row :gutter="20">
             <el-col :span="6">
               <el-checkbox-group v-model="loginForm.rememberMe">
-                <el-checkbox label="记住密码" name="rememberMe"></el-checkbox>
+                <el-checkbox class="remember" label="记住密码" name="rememberMe"></el-checkbox>
               </el-checkbox-group>
             </el-col>
             <el-col :span="4" :offset="6">
-              <el-button type="text" @click="register">用户注册</el-button>
+              <el-button class="register" type="text" @click="register">用户注册</el-button>
             </el-col>
             <el-col :span="4" :offset="2">
-              <el-button type="text" @click="forgetPassword">忘记密码</el-button>
+              <el-button class="forget" type="text" @click="forgetPassword">忘记密码</el-button>
             </el-col>
           </el-row>
         </el-form-item>
-        <el-form-item class="form-login">
-          <el-button class="form-login-button" @click="doLogin('loginForm')">登陆</el-button>
-        </el-form-item>
       </el-form>
+      <div class="form-login">
+        <el-button class="form-login-button" @click="doLogin('loginForm')">登陆</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -94,22 +97,61 @@
   .login {
     width: 100%;
     height: 100%;
+    min-height: 600px;
     background-size: cover;
-    background-image: url(@login_background);
+    background-image: url(@login-bg-img);
   }
   .form {
-    width: 27rem;
-    height: 21rem;
+    width: 28rem;
+    height: 26rem;
     background-color: white;
-    padding: 2em;
+    border-radius: 10px;
     position: absolute;
     right: 16%;
     top: 25%;
+    text-align: -webkit-center;
+  }
+  .form form {
+    width: 90%;
+    padding: 4% 5%;
+    background-color: @bg-color-7;
+  }
+  .form .header {
+    margin: 1.5rem;
+    text-align: center;
+    color: @color-default;
+    font-size: @font-size-medium;
+    padding: auto 2em;
+  }
+  .form .header h1 {
+    font-weight: lighter;
   }
   .form-login {
-    text-align: center
+    text-align: center;
+    margin: 5% 0;
   }
   .form-login-button {
-    width: 80%
+    width: 80%;
+    background-color: @login-btn-bg;
+    border-radius: 1em;
+    color: @font-color-7;
   }
+  .form-login-button:hover {
+    color: @font-color-6;
+  }
+  .form-login-button:active {
+    color: @font-color-7;
+  }
+
+  .remember, .register, .forget {
+    font-size: @font-size-ex-small;
+  }
+  .forget {
+    color: @color-negative;
+  }
+  .forget:active {
+    color: @color-negative - 22;
+  }
+
+
 </style>

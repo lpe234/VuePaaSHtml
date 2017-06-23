@@ -6,7 +6,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 
 import 'element-ui/lib/theme-default/index.css'
-import '../static/css/index.css'
+import './assets/index.less'
 
 Vue.config.productionTip = false
 
