@@ -1,17 +1,17 @@
 <template>
   <div class="login">
     <div class="form">
-      <el-form ref="form" :model="form">
-        <el-form-item>
-          <el-input v-model="form.username" placeholder="请输入用户名" icon="information"></el-input>
+      <el-form ref="loginForm" :model="loginForm" :rules="rules">
+        <el-form-item prop="username">
+          <el-input v-model="loginForm.username" placeholder="请输入用户名" icon="information"></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-input v-model="form.password" type="password" autoComplete="off" placeholder="请输入密码" icon="information"></el-input>
+        <el-form-item prop="password">
+          <el-input v-model="loginForm.password" type="password" autoComplete="off" placeholder="请输入密码" icon="information"></el-input>
         </el-form-item>
         <el-form-item>
           <el-row :gutter="20">
             <el-col :span="6">
-              <el-checkbox-group v-model="form.rememberMe">
+              <el-checkbox-group v-model="loginForm.rememberMe">
                 <el-checkbox label="记住密码" name="rememberMe"></el-checkbox>
               </el-checkbox-group>
             </el-col>
@@ -24,7 +24,7 @@
           </el-row>
         </el-form-item>
         <el-form-item style="text-align: center">
-          <el-button style="width: 80%" @click="doLogin">登陆</el-button>
+          <el-button style="width: 80%" @click="doLogin('loginForm')">登陆</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -44,10 +44,26 @@
     name: 'login',
     data () {
       return {
-        form: {
+        loginForm: {
           username: '',
           password: '',
           rememberMe: false
+        },
+        rules: {
+          username: [
+            {
+              required: true,
+              message: '请输入用户名',
+              trigger: 'blur'
+            }
+          ],
+          password: [
+            {
+              required: true,
+              message: '请输入密码',
+              trigger: 'blur'
+            }
+          ]
         }
       }
     },
@@ -59,7 +75,12 @@
       forgetPassword () {
         console.debug('to forgetPassword')
       },
-      doLogin () {
+      doLogin (loginForm) {
+        this.$refs[loginForm].validate((valid) => {
+          if (valid) {
+            console.info('login success')
+          }
+        })
         console.debug('to doLogin: ' + JSON.stringify(this.form))
       }
     }
