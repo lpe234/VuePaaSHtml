@@ -23,8 +23,8 @@
             </el-col>
           </el-row>
         </el-form-item>
-        <el-form-item style="text-align: center">
-          <el-button style="width: 80%" @click="doLogin('loginForm')">登陆</el-button>
+        <el-form-item class="form-login">
+          <el-button class="form-login-button" @click="doLogin('loginForm')">登陆</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -88,11 +88,14 @@
 </script>
 
 <style lang="less" scoped>
+
+  @import "../assets/base";
+
   .login {
     width: 100%;
     height: 100%;
     background-size: cover;
-    background-image: url('/static/images/background.png');
+    background-image: url(@login_background);
   }
   .form {
     width: 27rem;
@@ -102,5 +105,11 @@
     position: absolute;
     right: 16%;
     top: 25%;
+  }
+  .form-login {
+    text-align: center
+  }
+  .form-login-button {
+    width: 80%
   }
 </style>
