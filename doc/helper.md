@@ -55,6 +55,7 @@ npm 依赖包安装目录
 * 使用了axios作为请求客户端，所有与axios相关的配置全部写在index.js文件中。
 * 文件名称按驼峰式，首字母大写，后加Api。如：AuthApi.js
 * 页面内部结构示例如下：
+
   ```javascript
   import $ from './'
   
@@ -81,6 +82,7 @@ npm 依赖包安装目录
 此处存放页面组件。也就是router中 可以直接配置的组件。具有完善业务功能的组件
 * 不允许直接在dom上写 style="" 之类，只能添加class，然后在style中写相应样式
 * 大体结构如下
+
   ```vue
   <template>
     <div class="xxx"></div>
