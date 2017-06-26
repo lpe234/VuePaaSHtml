@@ -48,8 +48,8 @@
     data () {
       return {
         loginForm: {
-          username: '',
-          password: '',
+          username: 'admin',
+          password: '123',
           rememberMe: false
         },
         rules: {
@@ -79,12 +79,23 @@
         console.debug('to forgetPassword')
       },
       doLogin (loginForm) {
-        this.$refs[loginForm].validate((valid) => {
+        let that = this
+        that.$refs[loginForm].validate((valid) => {
           if (valid) {
+            // do login
+            sessionStorage.setItem('user', that.loginForm.username)
+            that.$notify({
+              title: '登陆成功',
+              message: that.loginForm.username,
+              type: 'success',
+              duration: 2000
+            })
             console.info('login success')
+            // redirect
+            that.$router.push('/')
           }
         })
-        console.debug('to doLogin: ' + JSON.stringify(this.form))
+        console.debug('to doLogin: ' + JSON.stringify(that.loginForm))
       }
     }
   }

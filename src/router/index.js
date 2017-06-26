@@ -40,7 +40,7 @@ router.beforeEach((to, from, next) => {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
     // TODO: auth.isLogin()
-    if (to === from) {
+    if (!sessionStorage.getItem('user')) {
       next({
         path: '/login',
         query: { redirect: to.fullPath }
