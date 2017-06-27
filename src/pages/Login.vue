@@ -73,10 +73,17 @@
     components: {ElRow, ElButton, ElCheckboxGroup, ElCheckbox, ElInput, ElFormItem, ElForm},
     methods: {
       register () {
-        console.debug('to register')
+        this.$message({
+          showClose: true,
+          message: '注册功能尚未开放',
+          type: 'warning'
+        })
       },
       forgetPassword () {
-        console.debug('to forgetPassword')
+        this.$message({
+          showClose: true,
+          message: '暂时无法重置密码'
+        })
       },
       doLogin (loginForm) {
         let that = this
@@ -93,12 +100,10 @@
               type: 'success',
               duration: 2000
             })
-            console.info('login success')
             // redirect
             that.$router.push('/')
           }
         })
-        console.debug('to doLogin: ' + JSON.stringify(that.loginForm))
       }
     }
   }
