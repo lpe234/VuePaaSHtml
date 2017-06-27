@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import Hello from '../components/Hello'
 import Home from '../views/Home'
 import Login from '../views/Login'
-import DBModel from '../views/DBModel'
+import DBModel from '../views/DBModel/DBModel'
 import FormDesign from '../views/FormDesign'
 import WorkFlow from '../views/WorkFlow'
 import SystemManage from '../views/SystemManage'
@@ -45,7 +45,7 @@ const router = new Router({
           name: 'DBModel',
           component: DBModel,
           meta: {
-            name: '数据建模'
+            name: '数据库建模'
           }
         },
         {

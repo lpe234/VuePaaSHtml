@@ -131,7 +131,7 @@
       margin-top: 12px;
     }
     .content {
-      margin: 12px 10px 10px 0;
+      margin: 12px 20px 10px 0;
     }
   }
 
