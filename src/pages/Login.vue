@@ -83,7 +83,10 @@
         that.$refs[loginForm].validate((valid) => {
           if (valid) {
             // do login
-            sessionStorage.setItem('user', that.loginForm.username)
+            sessionStorage.setItem('user', JSON.stringify({
+              'name': that.loginForm.username,
+              'avatar': ''
+            }))
             that.$notify({
               title: '登陆成功',
               message: that.loginForm.username,
@@ -121,21 +124,21 @@
     right: 16%;
     top: 25%;
     text-align: -webkit-center;
-  }
-  .form form {
-    width: 90%;
-    padding: 4% 5%;
-    background-color: @bg-color-7;
-  }
-  .form .header {
-    margin: 1.5rem;
-    text-align: center;
-    color: @color-default;
-    font-size: @font-size-medium;
-    padding: auto 2em;
-  }
-  .form .header h1 {
-    font-weight: lighter;
+    form {
+      width: 90%;
+      padding: 4% 5%;
+      background-color: @bg-color-7;
+      .header {
+        margin: 1.5rem;
+        text-align: center;
+        color: @color-default;
+        font-size: @font-size-medium;
+        padding: auto 2em;
+        h1 {
+          font-weight: lighter;
+        }
+      }
+    }
   }
   .form-login {
     text-align: center;
@@ -163,6 +166,5 @@
   .forget:active {
     color: @color-negative - 22;
   }
-
 
 </style>
