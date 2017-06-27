@@ -128,15 +128,15 @@
       width: 90%;
       padding: 4% 5%;
       background-color: @bg-color-7;
-      .header {
-        margin: 1.5rem;
-        text-align: center;
-        color: @color-default;
-        font-size: @font-size-medium;
-        padding: auto 2em;
-        h1 {
-          font-weight: lighter;
-        }
+    }
+    .header {
+      margin: 1.5rem;
+      text-align: center;
+      color: @color-default;
+      font-size: @font-size-medium;
+      padding: auto 2em;
+      h1 {
+        font-weight: lighter;
       }
     }
   }
