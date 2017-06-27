@@ -44,7 +44,7 @@
           <el-button type="text" icon="setting">皮肤</el-button>
           <el-button type="text" >菜单<i class="el-icon-arrow-down"></i></el-button>
           <el-button type="text" icon="caret-top">用户名</el-button>
-          <el-button type="text" icon="circle-close">退出</el-button>
+          <el-button type="text" icon="circle-close" @click="doLogout">退出</el-button>
         </div>
       </el-col>
     </el-row>
@@ -80,6 +80,21 @@
       handleSelect (key, keyPath) {
         console.log(key, keyPath)
         console.log(this.$route.matched)
+      },
+      // 退出登陆
+      doLogout () {
+        this.$confirm('确认要退出吗?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          // 1. 请求后台接口
+          // 2. 清除本地数据
+          sessionStorage.removeItem('user')
+          // 跳转到登陆页
+          this.$router.push({name: 'Login'})
+        }).catch(() => {
+        })
       }
     }
   }

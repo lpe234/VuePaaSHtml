@@ -98,7 +98,7 @@
               title: '登陆成功',
               message: that.loginForm.username,
               type: 'success',
-              duration: 2000
+              duration: 600
             })
             // redirect
             that.$router.push('/')
