@@ -185,6 +185,19 @@
             dbType: 'MySQL',
             dbHost: '192.168.1.1',
             dbPort: '3306'
+          },
+          {
+            dbName: '绿科投后生产库-005',
+            dbType: 'SQL Server',
+            dbHost: '192.168.1.1',
+            dbPort: '1443'
+          },
+          {
+            dbName: '绿科投后生产库-005',
+            dbType: 'Oracle',
+            dbOracleAuthType: 'Basic',
+            dbHost: '192.168.1.1',
+            dbPort: '1521'
           }
         ],
         databasesSelectRows: [],
