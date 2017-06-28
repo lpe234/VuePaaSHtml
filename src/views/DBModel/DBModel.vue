@@ -80,7 +80,7 @@
 
     <!-- 新建数据库连接 -->
     <el-dialog title="新建关联库" :visible.sync="newDatabaseFormVisible" class="db-dialog" size="tiny">
-      <el-form ref="DBForm" :model="DBForm" :rules="DBFormRule">
+      <el-form ref="DBForm" :model="DBForm" :rules="DBFormRule" :label-position="newDatabaseFormLabelPosition">
         <el-form-item label="连接名称" :label-width="formLabelWidth" prop="dbName">
           <el-input size="small" v-model="DBForm.dbName" autoComplete="off" placeholder="绿科投后管理系统_测试库"></el-input>
         </el-form-item>
@@ -110,6 +110,7 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
+        <el-button class="test-connection-btn" size="small" type="primary" icon="arrow-right" @click="testConnection">测试连接</el-button>
         <el-button size="small" type="primary" icon="circle-check" @click="saveDBForm('DBForm')">保 存</el-button>
         <el-button size="small" icon="circle-close" @click="newDatabaseFormVisible = false">取 消</el-button>
       </div>
@@ -117,7 +118,20 @@
   </div>
 </template>
 <script>
+  import ElButton from '../../../node_modules/element-ui/packages/button/src/button'
+
+  const DBForm = {
+    dbName: '',
+    dbType: '',
+    dbHost: '',
+    dbPort: '',
+    username: '',
+    password: '',
+    charset: ''
+  }
+
   export default {
+    components: {ElButton},
     name: 'DBModel',
     data () {
       return {
@@ -162,15 +176,8 @@
         currentPage: 1,
         formLabelWidth: '100px',
         newDatabaseFormVisible: false,
-        DBForm: {
-          DBName: '',
-          DBType: '',
-          DBHost: '',
-          DBPort: '',
-          username: '',
-          password: '',
-          charset: ''
-        },
+        newDatabaseFormLabelPosition: 'left',
+        DBForm: DBForm,
         DBFormRule: {
           dbName: [
             {
@@ -269,8 +276,11 @@
           console.log(that.$refs)
         })
       },
+      testConnection () {
+        console.log('测试数据库连接')
+      },
       clearDBFrom () {
-        this.DBForm = {}
+        this.DBForm = Object.assign({}, DBForm)
       }
     }
   }
@@ -299,6 +309,9 @@
     .db-dialog {
       .el-select {
         width: 100%;
+      }
+      .test-connection-btn {
+        float: left;
       }
     }
   }
