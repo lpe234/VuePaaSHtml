@@ -3,10 +3,10 @@
     <!-- 查询表单 -->
     <el-form :inline="true" :model="searchForm" class="searchForm">
       <el-form-item label="连接名称">
-        <el-input v-model="searchForm.connectName" size="small" placeholder="请输入内容"></el-input>
+        <el-input v-model="searchForm.dbName" size="small" placeholder="请输入内容"></el-input>
       </el-form-item>
       <el-form-item label="主机名/IP">
-        <el-input v-model="searchForm.host" size="small" placeholder="请输入内容"></el-input>
+        <el-input v-model="searchForm.dbHost" size="small" placeholder="请输入内容"></el-input>
       </el-form-item>
       <el-form-item label="数据库类型">
         <el-select v-model="searchForm.dbType" size="small" placeholder="请选择">
@@ -136,8 +136,8 @@
     data () {
       return {
         searchForm: {
-          connectName: '',
-          host: '',
+          dbName: '',
+          dbHost: '',
           dbType: ''
         },
         databases: [
