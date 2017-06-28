@@ -79,7 +79,7 @@
     </el-pagination>
 
     <!-- 新建数据库连接 -->
-    <el-dialog title="新建关联库" :visible.sync="newDatabaseFormVisible" class="db-dialog" size="tiny">
+    <el-dialog :title="newDatabaseFormTitle" :visible.sync="newDatabaseFormVisible" class="db-dialog" size="tiny">
       <el-form ref="DBForm" :model="DBForm" :rules="DBFormRule" :label-position="newDatabaseFormLabelPosition">
         <el-form-item label="连接名称" :label-width="formLabelWidth" prop="dbName">
           <el-input size="small" v-model="DBForm.dbName" autoComplete="off" placeholder="绿科投后管理系统_测试库"></el-input>
@@ -176,6 +176,7 @@
         currentPage: 1,
         formLabelWidth: '100px',
         newDatabaseFormVisible: false,
+        newDatabaseFormTitle: '新建关联库',
         newDatabaseFormLabelPosition: 'left',
         DBForm: DBForm,
         DBFormRule: {
@@ -251,6 +252,7 @@
       // 表格内编辑、删除、表格选中事件
       editItem (index, rows) {
         this.DBForm = rows[index]
+        this.newDatabaseFormTitle = '修改关联库'
         this.newDatabaseFormVisible = true
       },
       deleteItem (index, rows) {
