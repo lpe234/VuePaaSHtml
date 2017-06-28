@@ -13,8 +13,6 @@
           <el-option label="MySQL" value="MySQL"></el-option>
           <el-option label="SQL Server" value="SQL Server"></el-option>
           <el-option label="Oracle" value="Oracle"></el-option>
-          <el-option label="PostgreSQL" value="PostgreSQL"></el-option>
-          <el-option label="MariaDB" value="MariaDB"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>
@@ -84,13 +82,11 @@
         <el-form-item label="连接名称" :label-width="formLabelWidth" prop="dbName">
           <el-input size="small" v-model="DBForm.dbName" autoComplete="off" placeholder="绿科投后管理系统_测试库"></el-input>
         </el-form-item>
-        <el-form-item label="数据库类型" :label-width="formLabelWidth" prop="dbType">
+        <el-form-item v-if="newDatabaseFormTitleCreate" label="数据库类型" :label-width="formLabelWidth" prop="dbType">
           <el-select size="small" v-model="DBForm.dbType" placeholder="请选择类型">
             <el-option label="MySQL" value="MySQL"></el-option>
             <el-option label="SQL Server" value="SQL Server"></el-option>
             <el-option label="Oracle" value="Oracle"></el-option>
-            <el-option label="PostgreSQL" value="PostgreSQL"></el-option>
-            <el-option label="MariaDB" value="MariaDB"></el-option>
           </el-select>
         </el-form-item>
         <el-form-item label="主机名/IP" :label-width="formLabelWidth" prop="dbHost">
@@ -99,13 +95,28 @@
         <el-form-item label="端口" :label-width="formLabelWidth" prop="dbPort">
           <el-input size="small" v-model="DBForm.dbPort" autoComplete="off" placeholder="请输入内容"></el-input>
         </el-form-item>
+        <el-form-item v-if="DBForm.dbType==='SQL Server'" label="初始化数据库" :label-width="formLabelWidth" prop="dbDefault">
+          <el-input size="small" v-model="DBForm.dbDefault" autoComplete="off" placeholder="请输入内容"></el-input>
+        </el-form-item>
+        <el-form-item v-if="DBForm.dbType==='SQL Server'" label="授权类型" :label-width="formLabelWidth" prop="dbAuthType">
+          <el-input size="small" v-model="DBForm.dbAuthType" autoComplete="off" placeholder="请输入内容"></el-input>
+        </el-form-item>
+        <el-form-item v-if="DBForm.dbType==='Oracle'" label="授权类型" :label-width="formLabelWidth" prop="dbOracleAuthType">
+          <el-select size="small" v-model="DBForm.dbOracleAuthType" placeholder="请选择类型">
+            <el-option label="Basic" value="Basic"></el-option>
+            <el-option label="TNS" value="TNS"></el-option>
+          </el-select>
+        </el-form-item>
+        <el-form-item v-if="DBForm.dbType==='Oracle'" label="服务名/SID" :label-width="formLabelWidth" prop="dbSID">
+          <el-input size="small" v-model="DBForm.dbSID" autoComplete="off" placeholder="请输入内容"></el-input>
+        </el-form-item>
         <el-form-item label="用户名" :label-width="formLabelWidth" prop="username">
           <el-input size="small" v-model="DBForm.username" autoComplete="off" placeholder="请输入内容"></el-input>
         </el-form-item>
         <el-form-item label="密码" :label-width="formLabelWidth" prop="password">
           <el-input size="small" v-model="DBForm.password" autoComplete="off" placeholder="请输入内容"></el-input>
         </el-form-item>
-        <el-form-item label="字符集" :label-width="formLabelWidth" prop="charset">
+        <el-form-item v-if="DBForm.dbType==='MySQL'" label="字符集" :label-width="formLabelWidth" prop="charset">
           <el-input size="small" v-model="DBForm.charset" autoComplete="off" placeholder="请输入内容"></el-input>
         </el-form-item>
       </el-form>
@@ -122,12 +133,16 @@
 
   const DBForm = {
     dbName: '',
-    dbType: '',
+    dbType: 'MySQL',
     dbHost: '',
-    dbPort: '',
-    username: '',
+    dbPort: '3306',
+    dbDefault: '',
+    dbAuthType: '',
+    dbOracleAuthType: '',
+    dbSID: '',
+    username: 'root',
     password: '',
-    charset: ''
+    charset: 'utf8'
   }
 
   export default {
@@ -138,7 +153,7 @@
         searchForm: {
           dbName: '',
           dbHost: '',
-          dbType: ''
+          dbType: 'MySQL'
         },
         databases: [
           {
@@ -176,7 +191,7 @@
         currentPage: 1,
         formLabelWidth: '100px',
         newDatabaseFormVisible: false,
-        newDatabaseFormTitle: '新建关联库',
+        newDatabaseFormTitleCreate: true,
         newDatabaseFormLabelPosition: 'left',
         DBForm: DBForm,
         DBFormRule: {
@@ -205,6 +220,27 @@
             {
               required: true,
               message: '请输入端口号',
+              trigger: 'blur'
+            }
+          ],
+          dbAuthType: [
+            {
+              required: true,
+              message: '请输入授权类型',
+              trigger: 'blur'
+            }
+          ],
+          dbOracleAuthType: [
+            {
+              required: true,
+              message: '请选择授权类型',
+              trigger: 'blur'
+            }
+          ],
+          dbSID: [
+            {
+              required: true,
+              message: '请输入服务名/SID',
               trigger: 'blur'
             }
           ],
@@ -240,6 +276,7 @@
       // 表格外 新建、删除
       doCreate () {
         this.clearDBFrom()
+        this.newDatabaseFormTitleCreate = true
         this.newDatabaseFormVisible = true
       },
       doDelete () {
@@ -252,7 +289,7 @@
       // 表格内编辑、删除、表格选中事件
       editItem (index, rows) {
         this.DBForm = rows[index]
-        this.newDatabaseFormTitle = '修改关联库'
+        this.newDatabaseFormTitleCreate = false
         this.newDatabaseFormVisible = true
       },
       deleteItem (index, rows) {
@@ -274,6 +311,8 @@
         that.$refs[DBForm].validate((valid) => {
           if (valid) {
             console.log(JSON.stringify(that.DBForm))
+            // 重置表单
+            that.$refs[DBForm].resetFields()
           }
           console.log(that.$refs)
         })
@@ -283,6 +322,40 @@
       },
       clearDBFrom () {
         this.DBForm = Object.assign({}, DBForm)
+      }
+    },
+    watch: {
+      'DBForm.dbType': function (val) {
+        // 只有在新建时，才可修改
+        if (this.newDatabaseFormTitleCreate) {
+          switch (val) {
+            case 'MySQL':
+              this.DBForm.dbPort = '3306'
+              this.DBForm.username = 'root'
+              break
+            case 'SQL Server':
+              this.DBForm.dbPort = '1433'
+              this.DBForm.dbDefault = 'master'
+              this.DBForm.dbAuthType = 'Basic'
+              this.DBForm.username = 'sa'
+              break
+            case 'Oracle':
+              this.DBForm.dbOracleAuthType = 'Basic'
+              this.DBForm.dbPort = '1521'
+              break
+            default:
+              this.DBForm = Object.assign({}, DBForm)
+          }
+        }
+      }
+    },
+    computed: {
+      newDatabaseFormTitle () {
+        let titlePrefix = '新建'
+        if (!this.newDatabaseFormTitleCreate) {
+          titlePrefix = '修改'
+        }
+        return titlePrefix + this.DBForm.dbType + '关联库'
       }
     }
   }
