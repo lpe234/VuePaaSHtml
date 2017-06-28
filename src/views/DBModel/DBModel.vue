@@ -172,28 +172,28 @@
           charset: ''
         },
         DBFormRule: {
-          DBName: [
+          dbName: [
             {
               required: true,
               message: '请输入连接名称',
               trigger: 'blur'
             }
           ],
-          DBType: [
+          dbType: [
             {
               required: true,
               message: '请选择数据库类型',
               trigger: 'blur'
             }
           ],
-          DBHost: [
+          dbHost: [
             {
               required: true,
               message: '请输入主机地址或IP',
               trigger: 'blur'
             }
           ],
-          DBPort: [
+          dbPort: [
             {
               required: true,
               message: '请输入端口号',
@@ -231,6 +231,7 @@
       },
       // 表格外 新建、删除
       doCreate () {
+        this.clearDBFrom()
         this.newDatabaseFormVisible = true
       },
       doDelete () {
@@ -267,6 +268,9 @@
           }
           console.log(that.$refs)
         })
+      },
+      clearDBFrom () {
+        this.DBForm = {}
       }
     }
   }
