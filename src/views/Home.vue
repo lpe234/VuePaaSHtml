@@ -50,12 +50,16 @@
     </el-row>
 
     <div>
-      <el-col :span="22" :offset="2" class="content-wrapper">
+      <el-col class="content-wrapper">
+        <!-- 面包屑 -->
         <el-breadcrumb separator=">" class="breadcrumb-inner">
           <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
             {{ item.meta.name }}
           </el-breadcrumb-item>
         </el-breadcrumb>
+
+        <!-- 默认 -->
+
         <!-- 路由视图 -->
         <router-view class="content"></router-view>
       </el-col>
@@ -64,13 +68,8 @@
 </template>
 
 <script>
-  import ElRow from 'element-ui/packages/row/src/row'
-  import ElCol from 'element-ui/packages/col/src/col'
-  import ElButton from '../../node_modules/element-ui/packages/button/src/button'
-
   export default {
     name: 'Home',
-    components: {ElButton, ElCol, ElRow},
     data () {
       return {
         activeIndex: 'home'
@@ -129,6 +128,9 @@
       border-left: 5px solid @color-default;
       padding-left: 6px;
       margin-top: 12px;
+    }
+    .content-wrapper {
+      padding-left: 20px;
     }
     .content {
       margin: 12px 20px 10px 0;
