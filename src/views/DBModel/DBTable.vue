@@ -76,6 +76,41 @@
       :total="1000"
       class="pagination">
     </el-pagination>
+
+    <!-- 新建表Dialog -->
+    <el-dialog :title="newTableFormTitle" :visible.sync="newTableFormVisible" class="db-dialog" size="small">
+      <!-- 展示文字 -->
+      <el-form :inline="true">
+        <el-form-item label="数据库名:">
+          <el-input size="small" :readonly="true"></el-input>
+        </el-form-item>
+        <el-form-item label="数据库类型:">
+          <el-input size="small" :readonly="true"></el-input>
+        </el-form-item>
+      </el-form>
+      <!-- 表名 -->
+      <el-form :inline="true">
+        <el-form-item label="表中文名:">
+          <el-input size="small"></el-input>
+        </el-form-item>
+        <el-form-item label="表英文名:">
+          <el-input size="small"></el-input>
+        </el-form-item>
+      </el-form>
+
+      <!-- FIXME: 还没有想好怎么写~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+      <el-table :data="columns" ref="multipleTable">
+        <el-table-column prop="nameCN" label="字段中文名"></el-table-column>
+        <el-table-column prop="nameEN" label="字段英文名"></el-table-column>
+        <el-table-column prop="type" label="数据类型"></el-table-column>
+        <el-table-column prop="length" label="长度"></el-table-column>
+        <el-table-column prop="required" label="是否必填"></el-table-column>
+        <el-table-column prop="primaryKey" label="是否主键"></el-table-column>
+        <el-table-column prop='默认值' label="默认值"></el-table-column>
+        <el-table-column label="操作"></el-table-column>
+      </el-table>
+
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -92,7 +127,14 @@
         inputLabelWidth: '7em',
         inputLabelPosition: 'left',
         tables: [],
-        currentPage: 1
+        currentPage: 1,
+        newTableFormTitle: '新建表',
+        newTableFormVisible: false,
+        columns: [
+          {
+            name: 123
+          }
+        ]
       }
     },
     methods: {
@@ -102,7 +144,7 @@
       },
       // 功能按钮
       doCreate () {
-
+        this.newTableFormVisible = true
       },
       doDelete () {
 
