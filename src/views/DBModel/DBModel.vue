@@ -39,6 +39,11 @@
       <el-table-column
         prop="dbName"
         label="连接名称">
+        <template scope="scope">
+          <el-button class="edit-dbname" type="text" @click="editDBItem(scope.$index, databases)" v-text="scope.row.dbName">
+
+          </el-button>
+        </template>
       </el-table-column>
       <el-table-column
         prop="dbType"
@@ -58,7 +63,7 @@
       </el-table-column>
       <el-table-column
         label="操作"
-        width="180">
+        width="160">
         <template scope="scope">
           <el-button class="create-btn" type="text" size="small" icon="edit" @click="editItem(scope.$index, databases)">编辑</el-button>
           <el-button class="delete-btn" type="text" size="small" icon="delete" @click="deleteItem(scope.$index, databases)">删除</el-button>
@@ -157,42 +162,49 @@
         },
         databases: [
           {
+            id: 1,
             dbName: '绿科投后生产库-001',
             dbType: 'MySQL',
             dbHost: '192.168.1.1',
             dbPort: '3306'
           },
           {
+            id: 2,
             dbName: '绿科投后生产库-002',
             dbType: 'MySQL',
             dbHost: '192.168.1.1',
             dbPort: '3306'
           },
           {
+            id: 3,
             dbName: '绿科投后生产库-003',
             dbType: 'MySQL',
             dbHost: '192.168.1.1',
             dbPort: '3306'
           },
           {
+            id: 4,
             dbName: '绿科投后生产库-004',
             dbType: 'MySQL',
             dbHost: '192.168.1.1',
             dbPort: '3306'
           },
           {
+            id: 5,
             dbName: '绿科投后生产库-005',
             dbType: 'MySQL',
             dbHost: '192.168.1.1',
             dbPort: '3306'
           },
           {
+            id: 6,
             dbName: '绿科投后生产库-005',
             dbType: 'SQL Server',
             dbHost: '192.168.1.1',
             dbPort: '1443'
           },
           {
+            id: 7,
             dbName: '绿科投后生产库-005',
             dbType: 'Oracle',
             dbOracleAuthType: 'Basic',
@@ -300,6 +312,14 @@
         console.log('nothing to delete ...')
       },
       // 表格内编辑、删除、表格选中事件
+      editDBItem (index, rows) {
+        this.$router.push({
+          name: 'DBTable',
+          params: {
+            id: rows[index].id
+          }
+        })
+      },
       editItem (index, rows) {
         this.DBForm = rows[index]
         this.newDatabaseFormTitleCreate = false

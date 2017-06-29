@@ -4,6 +4,7 @@ import Hello from '../components/Hello'
 import Home from '../views/Home'
 import Login from '../views/Login'
 import DBModel from '../views/DBModel/DBModel'
+import DBTable from '../views/DBModel/DBTable'
 import FormDesign from '../views/FormDesign'
 import WorkFlow from '../views/WorkFlow'
 import SystemManage from '../views/SystemManage'
@@ -46,6 +47,14 @@ const router = new Router({
           component: DBModel,
           meta: {
             name: '数据库建模'
+          }
+        },
+        {
+          path: 'DBTable/:id',
+          name: 'DBTable',
+          component: DBTable,
+          meta: {
+            name: '数据库表'
           }
         },
         {

@@ -11,31 +11,31 @@
           <el-menu-item index="/">首页</el-menu-item>
           <el-submenu index="2">
             <template slot="title">数据库建模</template>
-            <el-menu-item index="DBModel">数据库建模</el-menu-item>
+            <el-menu-item index="/DBModel">数据库建模</el-menu-item>
           </el-submenu>
           <el-submenu index="3">
             <template slot="title">表单设计</template>
-            <el-menu-item index="FormDesign">表单设计</el-menu-item>
+            <el-menu-item index="/FormDesign">表单设计</el-menu-item>
           </el-submenu>
           <el-submenu index="4">
             <template slot="title">工作流程</template>
-            <el-menu-item index="WorkFlow">工作流程</el-menu-item>
+            <el-menu-item index="/WorkFlow">工作流程</el-menu-item>
           </el-submenu>
           <el-submenu index="5">
             <template slot="title">系统管理</template>
-            <el-menu-item index="SystemManage">系统管理</el-menu-item>
+            <el-menu-item index="/SystemManage">系统管理</el-menu-item>
           </el-submenu>
           <el-submenu index="6">
             <template slot="title">接口管理</template>
-            <el-menu-item index="APIManage">接口管理</el-menu-item>
+            <el-menu-item index="/APIManage">接口管理</el-menu-item>
           </el-submenu>
           <el-submenu index="7">
             <template slot="title">运维监控</template>
-            <el-menu-item index="OperationMonitor">运维监控</el-menu-item>
+            <el-menu-item index="/OperationMonitor">运维监控</el-menu-item>
           </el-submenu>
           <el-submenu index="8">
             <template slot="title">共享技术服务</template>
-            <el-menu-item index="ShareService">共享技术服务</el-menu-item>
+            <el-menu-item index="/ShareService">共享技术服务</el-menu-item>
           </el-submenu>
         </el-menu>
       </el-col>
