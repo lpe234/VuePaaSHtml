@@ -41,7 +41,6 @@
         label="连接名称">
         <template scope="scope">
           <el-button class="edit-dbname" type="text" @click="editDBItem(scope.$index, databases)" v-text="scope.row.dbName">
-
           </el-button>
         </template>
       </el-table-column>
@@ -53,7 +52,7 @@
         prop="dbHost"
         label="主机名/IP">
         <template scope="scope">
-          <el-tag type="primary">{{scope.row.dbHost}}</el-tag>
+          <el-tag type="primary" :close-transition="true">{{scope.row.dbHost}}</el-tag>
         </template>
       </el-table-column>
       <el-table-column
@@ -406,7 +405,7 @@
         color: @color-negative;
       }
       .delete-btn:active {
-        color: @color-negative - 66;
+        color: @color-negative-active;
       }
     }
     .pagination {

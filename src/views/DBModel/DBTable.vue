@@ -60,9 +60,9 @@
         label="操作"
         width="200">
         <template scope="scope">
-          <el-button class="create-btn" type="text" size="small" icon="edit" @click="editItem(scope.$index, databases)">编辑</el-button>
-          <el-button class="delete-btn" type="text" size="small" icon="delete" @click="deleteItem(scope.$index, databases)">删除</el-button>
-          <el-button class="preview-btn" type="text" size="small" icon="view" @click="previewItem(scope.$index, databases)">删除</el-button>
+          <el-button class="create-btn" type="text" size="small" icon="edit" @click="editItem(scope.$index, tables)">编辑</el-button>
+          <el-button class="delete-btn" type="text" size="small" icon="delete" @click="deleteItem(scope.$index, tables)">删除</el-button>
+          <el-button class="preview-btn" type="text" size="small" icon="view" @click="previewItem(scope.$index, tables)">预览</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -124,11 +124,12 @@
 
       },
       // 分页
-      handleSizeChange () {
-
+      handleSizeChange (val) {
+        console.log(val)
       },
-      handleCurrentChange () {
-
+      handleCurrentChange (val) {
+        console.log('handleCurrentChange: ' + val)
+        // TODO: 翻页
       },
       // 数据获取
       getTableData () {
@@ -177,6 +178,9 @@
   }
 </script>
 <style lang="less" scoped>
+
+  @import "../../assets/base";
+
   .db-table {
     text-align: left;
     .search-from {
@@ -185,7 +189,18 @@
       margin-bottom: 16px;
     }
     .table {
-
+      .delete-btn {
+        color: @color-negative;
+      }
+      .delete-btn:active {
+        color: @color-negative-active;
+      }
+      .preview-btn {
+        color: @color-positive;
+      }
+      .preview-btn:active {
+        color: @color-positive-active
+      }
     }
     .pagination {
       float: right;
