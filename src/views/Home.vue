@@ -52,13 +52,19 @@
     <div>
       <el-col class="content-wrapper">
         <!-- 面包屑 -->
-        <el-breadcrumb separator=">" class="breadcrumb-inner">
+        <el-breadcrumb v-if="!$route.meta.isDefaultPage" separator=">" class="breadcrumb-inner">
           <el-breadcrumb-item v-for="item in $route.matched" :key="item.path">
             {{ item.meta.name }}
           </el-breadcrumb-item>
         </el-breadcrumb>
 
-        <!-- 默认 -->
+        <!-- 默认展示页面(仅在首页展示) -->
+        <div v-if="$route.meta.isDefaultPage" class="default-page">
+
+          <!-- test element-ui -->
+          <iframe class="element-ui" src="http://element.eleme.io/#/zh-CN/component/installation"></iframe>
+
+        </div>
 
         <!-- 路由视图 -->
         <router-view class="content"></router-view>
@@ -103,10 +109,6 @@
 
   @import "../assets/base";
 
-  h1 {
-    text-align: center;
-  }
-
   .home {
     .header {
       background-color: @bg-color-1;
@@ -131,9 +133,21 @@
     }
     .content-wrapper {
       padding-left: 20px;
+      padding-right: 20px;
     }
     .content {
       margin: 12px 20px 10px 0;
+    }
+    .default-page {
+
+      /* test element-ui */
+      .element-ui {
+        width: 100%;
+        border: 1px solid @color-positive;
+        min-height: 800px;
+        margin-top: 2em;
+      }
+
     }
   }
 

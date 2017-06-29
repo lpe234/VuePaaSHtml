@@ -38,7 +38,8 @@ const router = new Router({
       component: Home,
       meta: {
         requiresAuth: true,
-        name: '首页'
+        name: '首页',
+        isDefaultPage: true
       },
       children: [
         {
