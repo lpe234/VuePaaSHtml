@@ -3,10 +3,10 @@
     <el-row class="header">
       <el-col :span="2">
         <div class="logo">
-          <img src=""/>
+          <h1>PaaS 云平台</h1>
         </div>
       </el-col>
-      <el-col :span="16" :offset="2">
+      <el-col :span="16">
         <el-menu theme="dark" :default-active="activeIndex" class="el-menu" :router=true mode="horizontal" @select="handleSelect">
           <el-menu-item index="/">首页</el-menu-item>
           <el-submenu index="2">
@@ -112,6 +112,14 @@
   .home {
     .header {
       background-color: @bg-color-1;
+      .logo {
+        h1 {
+          font-size: 20px;
+          font-weight: lighter;
+          color: aliceblue;
+          margin: 14px auto auto 10px;
+        }
+      }
       .el-menu {
         background-color: @bg-color-1;
       }
