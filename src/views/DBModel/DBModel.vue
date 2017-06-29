@@ -64,8 +64,8 @@
         label="操作"
         width="160">
         <template scope="scope">
-          <el-button class="create-btn" type="text" size="small" icon="edit" @click="editItem(scope.$index, databases)">编辑</el-button>
-          <el-button class="delete-btn" type="text" size="small" icon="delete" @click="deleteItem(scope.$index, databases)">删除</el-button>
+          <el-button class="create-btn" type="text" size="small" icon="pencil" @click="editItem(scope.$index, databases)">编辑</el-button>
+          <el-button class="delete-btn" type="text" size="small" icon="trash" @click="deleteItem(scope.$index, databases)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -125,15 +125,15 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button class="test-connection-btn" size="small" type="primary" icon="arrow-right" @click="testConnection">测试连接</el-button>
-        <el-button size="small" type="primary" icon="circle-check" @click="saveDBForm('DBForm')">保 存</el-button>
-        <el-button size="small" icon="circle-close" @click="newDatabaseFormVisible = false">取 消</el-button>
+        <el-button class="test-connection-btn" size="small" type="primary" icon="link" @click="testConnection">测试连接</el-button>
+        <el-button size="small" type="primary" icon="check-circle-o" @click="saveDBForm('DBForm')">保 存</el-button>
+        <el-button size="small" icon="times-circle-o" @click="newDatabaseFormVisible = false">取 消</el-button>
       </div>
     </el-dialog>
   </div>
 </template>
 <script>
-  import ElButton from '../../../node_modules/element-ui/packages/button/src/button'
+  import ElButton from '../../components/button'
 
   const DBForm = {
     dbName: '',

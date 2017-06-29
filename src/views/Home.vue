@@ -42,7 +42,7 @@
       <el-col :span="6">
         <div class="user-info">
           <el-button type="text" icon="setting">皮肤</el-button>
-          <el-button type="text" >菜单<i class="el-icon-arrow-down"></i></el-button>
+          <el-button type="text" >菜单<i class="fa fa-angle-double-up"></i></el-button>
           <el-button type="text" icon="caret-top">用户名</el-button>
           <el-button type="text" icon="circle-close" @click="doLogout">退出</el-button>
         </div>

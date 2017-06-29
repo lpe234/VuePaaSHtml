@@ -6,10 +6,10 @@
       </div>
       <el-form ref="loginForm" :model="loginForm" :rules="rules">
         <el-form-item prop="username">
-          <el-input v-model="loginForm.username" placeholder="请输入用户名" icon="information"></el-input>
+          <el-input v-model="loginForm.username" placeholder="请输入用户名" icon="user-o"></el-input>
         </el-form-item>
         <el-form-item prop="password">
-          <el-input v-model="loginForm.password" type="password" autoComplete="off" placeholder="请输入密码" icon="information"></el-input>
+          <el-input v-model="loginForm.password" type="password" autoComplete="off" placeholder="请输入密码" icon="lock"></el-input>
         </el-form-item>
         <el-form-item>
           <el-row :gutter="20">
@@ -35,13 +35,7 @@
 </template>
 
 <script>
-  import ElForm from '../../node_modules/element-ui/packages/form/src/form'
-  import ElFormItem from '../../node_modules/element-ui/packages/form/src/form-item'
-  import ElInput from '../../node_modules/element-ui/packages/input/src/input'
-  import ElCheckbox from '../../node_modules/element-ui/packages/checkbox/src/checkbox'
-  import ElCheckboxGroup from '../../node_modules/element-ui/packages/checkbox/src/checkbox-group'
-  import ElButton from '../../node_modules/element-ui/packages/button/src/button'
-  import ElRow from 'element-ui/packages/row/src/row'
+  import ElInput from '../components/input'
 
   export default {
     name: 'login',
@@ -70,7 +64,7 @@
         }
       }
     },
-    components: {ElRow, ElButton, ElCheckboxGroup, ElCheckbox, ElInput, ElFormItem, ElForm},
+    components: {ElInput},
     methods: {
       register () {
         this.$message({
@@ -119,57 +113,59 @@
     min-height: 600px;
     background-size: cover;
     background-image: url(@login-bg-img);
-  }
-  .form {
-    width: 28rem;
-    height: 26rem;
-    background-color: white;
-    border-radius: 10px;
-    position: absolute;
-    right: 16%;
-    top: 25%;
-    text-align: -webkit-center;
-    form {
-      width: 90%;
-      padding: 4% 5%;
-      background-color: @bg-color-7;
-    }
-    .header {
-      margin: 1.5rem;
-      text-align: center;
-      color: @color-default;
-      font-size: @font-size-medium;
-      padding: auto 2em;
-      h1 {
-        font-weight: lighter;
+    .form {
+      width: 28rem;
+      height: 26rem;
+      background-color: white;
+      border-radius: 10px;
+      position: absolute;
+      right: 16%;
+      top: 25%;
+      text-align: -webkit-center;
+      .fa {
+        color: @font-color-1;
+      }
+      form {
+        width: 90%;
+        padding: 4% 5%;
+        background-color: @bg-color-7;
+      }
+      .header {
+        margin: 1.5rem;
+        text-align: center;
+        color: @color-default;
+        font-size: @font-size-medium;
+        padding: auto 2em;
+        h1 {
+          font-weight: lighter;
+        }
+      }
+      .form-login {
+        text-align: center;
+        margin: 5% 0;
+      }
+      .form-login-button {
+        width: 80%;
+        background-color: @login-btn-bg;
+        border-radius: 1em;
+        color: @font-color-7;
+      }
+      .form-login-button:hover {
+        color: @font-color-6;
+      }
+      .form-login-button:active {
+        color: @font-color-7;
+      }
+      .remember, .register, .forget {
+        font-size: @font-size-ex-small;
+      }
+      .forget {
+        color: @color-negative;
+      }
+      .forget:active {
+        color: @color-negative-active;
       }
     }
-  }
-  .form-login {
-    text-align: center;
-    margin: 5% 0;
-  }
-  .form-login-button {
-    width: 80%;
-    background-color: @login-btn-bg;
-    border-radius: 1em;
-    color: @font-color-7;
-  }
-  .form-login-button:hover {
-    color: @font-color-6;
-  }
-  .form-login-button:active {
-    color: @font-color-7;
-  }
-
-  .remember, .register, .forget {
-    font-size: @font-size-ex-small;
-  }
-  .forget {
-    color: @color-negative;
-  }
-  .forget:active {
-    color: @color-negative - 22;
   }
 
 </style>
