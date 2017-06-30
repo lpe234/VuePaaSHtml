@@ -1,25 +1,31 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '../components/Hello'
-import Home from '../views/Home'
-import Login from '../views/Login'
-import DBModel from '../views/DBModel/DBModel'
-import DBTable from '../views/DBModel/DBTable'
-import FormDesign from '../views/FormDesign'
-import WorkFlow from '../views/WorkFlow'
-import SystemManage from '../views/SystemManage'
-import APIManage from '../views/APIManage'
-import OperationMonitor from '../views/OperationMonitor'
-import ShareService from '../views/ShareService'
 
 Vue.use(Router)
+
+// 测试
+const cHello = resolve => require(['../components/Hello'], resolve)
+// 登陆
+const cLogin = resolve => require(['../views/Login'], resolve)
+// 默认首页
+const cHome = resolve => require(['../views/Home'], resolve)
+// 其他页面
+const cDBModel = resolve => require(['../views/DBModel/DBModel'], resolve)
+const cDBTable = resolve => require(['../views/DBModel/DBTable'], resolve)
+
+const cFormDesign = resolve => require(['../views/FormDesign'], resolve)
+const cWorkFlow = resolve => require(['../views/WorkFlow'], resolve)
+const cSystemManage = resolve => require(['../views/SystemManage'], resolve)
+const cAPIManage = resolve => require(['../views/APIManage'], resolve)
+const cOperationMonitor = resolve => require(['../views/OperationMonitor'], resolve)
+const cShareService = resolve => require(['../views/ShareService'], resolve)
 
 const router = new Router({
   routes: [
     {
       path: '/Login',
       name: 'Login',
-      component: Login,
+      component: cLogin,
       meta: {
         name: '登陆'
       }
@@ -27,7 +33,7 @@ const router = new Router({
     {
       path: '/Hello',
       name: 'Hello',
-      component: Hello,
+      component: cHello,
       meta: {
         name: 'Hello'
       }
@@ -35,7 +41,7 @@ const router = new Router({
     {
       path: '/',
       name: 'Home',
-      component: Home,
+      component: cHome,
       meta: {
         requiresAuth: true,
         name: '首页',
@@ -45,7 +51,7 @@ const router = new Router({
         {
           path: 'DBModel',
           name: 'DBModel',
-          component: DBModel,
+          component: cDBModel,
           meta: {
             name: '数据库建模'
           }
@@ -53,7 +59,7 @@ const router = new Router({
         {
           path: 'DBTable/:id',
           name: 'DBTable',
-          component: DBTable,
+          component: cDBTable,
           meta: {
             name: '数据库表'
           }
@@ -61,7 +67,7 @@ const router = new Router({
         {
           path: 'FormDesign',
           name: 'FormDesign',
-          component: FormDesign,
+          component: cFormDesign,
           meta: {
             name: '表单设计'
           }
@@ -69,7 +75,7 @@ const router = new Router({
         {
           path: 'WorkFlow',
           name: 'WorkFlow',
-          component: WorkFlow,
+          component: cWorkFlow,
           meta: {
             name: '工作流程'
           }
@@ -77,7 +83,7 @@ const router = new Router({
         {
           path: 'SystemManage',
           name: 'SystemManage',
-          component: SystemManage,
+          component: cSystemManage,
           meta: {
             name: '系统管理'
           }
@@ -85,7 +91,7 @@ const router = new Router({
         {
           path: 'APIManage',
           name: 'APIManage',
-          component: APIManage,
+          component: cAPIManage,
           meta: {
             name: '接口管理'
           }
@@ -93,7 +99,7 @@ const router = new Router({
         {
           path: 'OperationMonitor',
           name: 'OperationMonitor',
-          component: OperationMonitor,
+          component: cOperationMonitor,
           meta: {
             name: '运维监控'
           }
@@ -101,7 +107,7 @@ const router = new Router({
         {
           path: 'ShareService',
           name: 'ShareService',
-          component: ShareService,
+          component: cShareService,
           meta: {
             name: '共享技术服务'
           }
