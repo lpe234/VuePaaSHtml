@@ -41,10 +41,10 @@
       </el-col>
       <el-col :span="6">
         <div class="user-info">
-          <el-button type="text" icon="setting">皮肤</el-button>
-          <el-button type="text" >菜单<i class="fa fa-angle-double-up"></i></el-button>
+          <el-button type="text" icon="paper-plane">皮肤</el-button>
+          <el-button type="text" >菜单&nbsp;<i class="fa fa-eject"></i></el-button>
           <el-button type="text" icon="caret-top">用户名</el-button>
-          <el-button type="text" icon="circle-close" @click="doLogout">退出</el-button>
+          <el-button type="text" icon="power-off" @click="doLogout">退出</el-button>
         </div>
       </el-col>
     </el-row>
@@ -74,8 +74,13 @@
 </template>
 
 <script>
+
+  import ElSubmenu from '../components/el/submenu'
+  import ElButton from '../components/el/button'
+
   export default {
     name: 'Home',
+    components: {ElSubmenu, ElButton},
     data () {
       return {
         activeIndex: 'home'

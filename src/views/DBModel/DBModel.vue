@@ -133,7 +133,7 @@
   </div>
 </template>
 <script>
-  import ElButton from '../../components/button'
+  import ElButton from '../../components/el/button'
 
   const DBForm = {
     dbName: '',

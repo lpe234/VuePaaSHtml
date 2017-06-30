@@ -19,6 +19,7 @@
         <i class="el-input__icon"
            :class="[
             'fa',
+            'fa-lg',
             'fa-' + icon,
             onIconClick ? 'is-clickable' : ''
           ]"

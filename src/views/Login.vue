@@ -35,7 +35,7 @@
 </template>
 
 <script>
-  import ElInput from '../components/input'
+  import ElInput from '../components/el/input'
 
   export default {
     name: 'login',
