@@ -89,7 +89,17 @@ npm 依赖包安装目录
   <div class="xxx"></div>
 </template>
 <script></script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+  @import '@/assets/base'
+  
+  /* use less */
+  .xxx {
+    xxx: xxx
+    .xxxx {
+      color: @color-default
+    }
+  }
+</style>
 ```
   **注意：**
   * template子节点，必须添加class="模块"
