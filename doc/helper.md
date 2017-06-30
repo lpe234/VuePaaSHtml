@@ -29,6 +29,7 @@ HJPaaSHtml
 │       └── index.js
 └── test # 测试
 ```
+
 ### build
 webpack配置及脚本文件
 
@@ -83,25 +84,26 @@ npm 依赖包安装目录
 * 不允许直接在dom上写 style="" 之类，只能添加class，然后在style中写相应样式
 * 大体结构如下
 
-  ```vue
-  <template>
-    <div class="xxx"></div>
-  </template>
-  <script></script>
-  <style lang="less" scoped></style>
-  ```
+```vue
+<template>
+  <div class="xxx"></div>
+</template>
+<script></script>
+<style lang="less" scoped></style>
+```
   **注意：**
   * template子节点，必须添加class="模块"
   * 为了更好的使IDE支持，script里面的引用不要使用alias
   * style使用lang="less" scoped 方便引入全局less和不对其他元素造成影响
+
 #### router
 项目前端路由配置
 * 遵循已有书写样式即可
 * 引入不要使用alias
 
-  ```text
-  路由页面组件使用懒加载的方式，以提高浏览器加载速度。避免打包时出现大文件。
-  ```
+```text
+路由页面组件使用懒加载的方式，以提高浏览器加载速度。避免打包时出现大文件。
+```
 
 ### static
 大概是存放一些不需要编译的静态文件
