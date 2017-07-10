@@ -1,8 +1,8 @@
 {
-  "name": "hj-paas-html",
+  "name": "vue-paas-html",
   "version": "1.0.0",
-  "description": "hejia paas html",
-  "author": "lupeng@hejia.cn",
+  "description": "vue paas html",
+  "author": "lpe234@qq.com",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

@@ -1,6 +1,8 @@
-# HJPaaSHtml
+# VuePaaSHtml
 
-> 和佳PaaS云平台，前端项目
+> VuePaaS云平台，前端项目
+>
+> 基于 vue-cli 脚手架创建的项目。原本计划用于PaaS云平台，后由于业务调整，项目被放弃~
 
 * [项目帮助](doc/helper.md)
 * [其他帮助](doc/other.md)

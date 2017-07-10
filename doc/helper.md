@@ -6,7 +6,7 @@
 
 ## 项目基本目录
 ```text
-HJPaaSHtml
+VuePaaSHtml
 ├── build # 项目构建等相关脚本
 ├── config # 项目构建等相关配置
 ├── dist # 项目打包文件生成位置 
