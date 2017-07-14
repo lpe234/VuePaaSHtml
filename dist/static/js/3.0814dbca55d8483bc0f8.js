@@ -209,8 +209,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__ = __webpack_require__(124);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_json_stringify__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_el_input__ = __webpack_require__(235);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_el_input__ = __webpack_require__(236);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_el_input___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_el_input__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assets_background_png__ = __webpack_require__(234);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__assets_background_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__assets_background_png__);
+
 
 
 
@@ -236,7 +239,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           message: '请输入密码',
           trigger: 'blur'
         }]
-      }
+      },
+      backgroundImg: __WEBPACK_IMPORTED_MODULE_2__assets_background_png___default.a
     };
   },
 
@@ -287,7 +291,7 @@ exports = module.exports = __webpack_require__(75)(false);
 
 
 // module
-exports.push([module.i, ".login[data-v-38e3b724]{width:100%;height:100%;min-height:600px;background-size:cover;background-image:url(\"/static/images/background.png\")}.login .form[data-v-38e3b724]{width:28rem;height:26rem;background-color:#fff;border-radius:10px;position:absolute;right:16%;top:25%;text-align:-webkit-center}.login .form .fa[data-v-38e3b724]{color:#1f2d3d}.login .form form[data-v-38e3b724]{width:90%;padding:4% 5%;background-color:#d3dce6}.login .form .header[data-v-38e3b724]{margin:1.5rem;text-align:center;color:#20a0ff;font-size:16px;padding:auto 2em}.login .form .header h1[data-v-38e3b724]{font-weight:lighter}.login .form .form-login[data-v-38e3b724]{text-align:center;margin:5% 0}.login .form .form-login-button[data-v-38e3b724]{width:80%;background-color:#0f5fc7;border-radius:1em;color:#fff}.login .form .form-login-button[data-v-38e3b724]:hover{color:#c0ccda}.login .form .form-login-button[data-v-38e3b724]:active{color:#fff}.login .form .forget[data-v-38e3b724],.login .form .register[data-v-38e3b724],.login .form .remember[data-v-38e3b724]{font-size:13px}.login .form .forget[data-v-38e3b724]{color:#ff4949}.login .form .forget[data-v-38e3b724]:active{color:#bd0707}", ""]);
+exports.push([module.i, ".login .bg-img[data-v-38e3b724],.login[data-v-38e3b724]{width:100%;height:100%;min-height:600px}.login .bg-img[data-v-38e3b724]{background-size:cover}.login .form[data-v-38e3b724]{width:28rem;height:26rem;background-color:#fff;border-radius:10px;position:absolute;right:16%;top:25%;text-align:-webkit-center}.login .form .fa[data-v-38e3b724]{color:#1f2d3d}.login .form form[data-v-38e3b724]{width:90%;padding:4% 5%;background-color:#d3dce6}.login .form .header[data-v-38e3b724]{margin:1.5rem;text-align:center;color:#20a0ff;font-size:16px;padding:auto 2em}.login .form .header h1[data-v-38e3b724]{font-weight:lighter}.login .form .form-login[data-v-38e3b724]{text-align:center;margin:5% 0}.login .form .form-login-button[data-v-38e3b724]{width:80%;background-color:#0f5fc7;border-radius:1em;color:#fff}.login .form .form-login-button[data-v-38e3b724]:hover{color:#c0ccda}.login .form .form-login-button[data-v-38e3b724]:active{color:#fff}.login .form .forget[data-v-38e3b724],.login .form .register[data-v-38e3b724],.login .form .remember[data-v-38e3b724]{font-size:13px}.login .form .forget[data-v-38e3b724]{color:#ff4949}.login .form .forget[data-v-38e3b724]:active{color:#bd0707}", ""]);
 
 // exports
 
@@ -440,14 +444,21 @@ var update = __webpack_require__(76)("f8af2ed6", content, true);
 
 /***/ }),
 
-/***/ 235:
+/***/ 234:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/img/background.ec34530.png";
+
+/***/ }),
+
+/***/ 236:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(27)(
   /* script */
   __webpack_require__(161),
   /* template */
-  __webpack_require__(239),
+  __webpack_require__(240),
   /* styles */
   null,
   /* scopeId */
@@ -461,7 +472,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 239:
+/***/ 240:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -524,7 +535,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
 
 /***/ }),
 
-/***/ 240:
+/***/ 241:
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -629,7 +640,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.doLogin('loginForm')
       }
     }
-  }, [_vm._v("登陆")])], 1)], 1)])
+  }, [_vm._v("登陆")])], 1)], 1), _vm._v(" "), _c('img', {
+    staticClass: "bg-img",
+    attrs: {
+      "src": _vm.backgroundImg
+    }
+  })])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "header"
@@ -648,7 +664,7 @@ var Component = __webpack_require__(27)(
   /* script */
   __webpack_require__(168),
   /* template */
-  __webpack_require__(240),
+  __webpack_require__(241),
   /* styles */
   injectStyle,
   /* scopeId */

@@ -31,11 +31,13 @@
         <el-button class="form-login-button" @click="doLogin('loginForm')">登陆</el-button>
       </div>
     </div>
+    <img class="bg-img" :src="backgroundImg"/>
   </div>
 </template>
 
 <script>
   import ElInput from '../components/el/input'
+  import BgImage from '../assets/background.png'
 
   export default {
     name: 'login',
@@ -61,7 +63,8 @@
               trigger: 'blur'
             }
           ]
-        }
+        },
+        backgroundImg: BgImage
       }
     },
     components: {ElInput},
@@ -111,8 +114,12 @@
     width: 100%;
     height: 100%;
     min-height: 600px;
-    background-size: cover;
-    background-image: url(@login-bg-img);
+    .bg-img {
+      background-size: cover;
+      width: 100%;
+      height: 100%;
+      min-height: 600px;
+    }
     .form {
       width: 28rem;
       height: 26rem;
