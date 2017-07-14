@@ -9,6 +9,8 @@
 
 _已使用 eslint(standard) 强制严格按照标准编写_
 
+* 预览[https://github.com/lpe234/VuePaaSHtml/dist](https://github.com/lpe234/VuePaaSHtml/dist)
+
 ## Build Setup
 
 ``` bash
