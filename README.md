@@ -9,7 +9,7 @@
 
 _已使用 eslint(standard) 强制严格按照标准编写_
 
-* 预览[https://github.com/lpe234/VuePaaSHtml/dist](https://github.com/lpe234/VuePaaSHtml/dist)
+* 预览[https://lpe234.github.io/VuePaaSHtml/dist/index.html](https://lpe234.github.io/VuePaaSHtml/dist/index.html)
 
 ## Build Setup
 
